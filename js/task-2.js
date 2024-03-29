@@ -29,14 +29,25 @@ const images = [
 ];
 
 const list = document.querySelector('.gallery');
+const fragment = document.createDocumentFragment();
 
-for (let image of images) {
-  let listItem = document.createElement('li');
+for (const image of images) {
+  const listItem = document.createElement('li');
   listItem.classList.add('list-item');
-  let picture = document.createElement('img');
-  picture.setAttribute('src', image.url);
-  picture.setAttribute('alt', image.alt);
+  const picture = document.createElement('img');
+  picture.src = image.url;
+  picture.alt = image.alt;
   listItem.appendChild(picture);
-  list.appendChild(listItem);
+  fragment.appendChild(listItem);
 }
 
+list.appendChild(fragment);
+
+// const list = document.querySelector('.gallery');
+// let itemsHTML = '';
+
+// for (const image of images) {
+//   itemsHTML += `<li class="list-item"><img src="${image.url}" alt="${image.alt}"></li>`;
+// }
+
+// list.insertAdjacentHTML('beforeend', itemsHTML);

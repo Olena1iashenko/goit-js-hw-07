@@ -9,7 +9,7 @@ function getRandomHexColor() {
     .padStart(6, 0)}`;
 }
 
-function addBoxes(number) {
+function createBoxes(number) {
   for (let i = 0; i < number; i++) {
     const divEl = document.createElement('div');
     divEl.style.backgroundColor = getRandomHexColor();
@@ -21,15 +21,15 @@ function addBoxes(number) {
 }
 
 function destroyBoxes() {
-  divContainer.style.display = 'none';
-  // divContainer.innerHTML = '';
+  divContainer.innerHTML = '';
 }
 
 btnCreateEl.addEventListener('click', () => {
   const number = parseInt(inputEl.value);
 
   if (number >= inputEl.min && number <= inputEl.max) {
-    addBoxes(number);
+    destroyBoxes();
+    createBoxes(number);
     inputEl.value = '';
   } else {
     alert('Please enter a number between 1 and 100');

@@ -8,8 +8,8 @@ formEl.addEventListener('submit', event => {
     }
     
     const formData = {
-        [formEl.elements.email.name]: formEl.elements.email.value,
-        [formEl.elements.password.name]: formEl.elements.password.value,
+        [formEl.elements.email.name]: formEl.elements.email.value.trim(),
+        [formEl.elements.password.name]: formEl.elements.password.value.trim(),
     };
     console.log(formData);
     formEl.reset();
